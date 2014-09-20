@@ -20,7 +20,7 @@ namespace lab3
         static void ProcessSalaries(int count)
         {
             
-            int[] array = new int[count];
+            
 
 
 
@@ -31,26 +31,45 @@ namespace lab3
                 Console.ResetColor(); 
                 return;
             }
-
             
-            {
+            
+            
+                int[] array = new int[count];
                 Console.WriteLine("");
-                for (int i = 0; i < array.Length; i++)
+                for (int i = 0; i < count ; i++)
                 {
 
                     Console.Write("Ange lön nummer {0}: ", i + 1);
-
-
-                    int amountOfSalaries = int.Parse(Console.ReadLine());
+                    array[i] = int.Parse(Console.ReadLine());
 
                 }
+
                 
+
+                int wagedistibution;
+                wagedistibution = array.Max() - array.Min();
+
+
+
+
+                
+
+
+
                 Console.WriteLine("\n----------------------------------");
                 Console.WriteLine("Medianlön:");
-                Console.WriteLine("Medellön:");
-                Console.WriteLine("Lönespridning:");
+                Console.WriteLine("Medellön: {0} ", array.Average());   
+                Console.WriteLine("Lönespridning: {0}", wagedistibution); 
                 Console.WriteLine("----------------------------------");
-            }
+
+                Array.Sort(array);
+                foreach (int i in array)
+                {
+                    Console.WriteLine(i);
+
+                }
+
+                
         }
 
 
@@ -61,5 +80,7 @@ namespace lab3
             return amountOfSalaries;
 
         }
+
+      
     }
 }
